@@ -9,9 +9,12 @@ class Interface extends React.Component {
         return (
             <>
 
-                <div>
+                <div className="">
                     <p>Score Joueur: {this.props.scorePlayer}</p>
                     <p>Score Dealer: {this.props.scoreDealer}</p>
+                </div>
+
+                <div className="">
 
                     {this.props.scorePlayer > 21 &&
                         <p>YOU LOOSE</p>}
@@ -47,8 +50,8 @@ class Interface extends React.Component {
                         this.props.scoreDealer < this.props.scorePlayer &&
                         <p> YOU win</p>}
 
-
                 </div>
+
 
 
                 <div className='container-principal d-flex justify-content-evenly '>
