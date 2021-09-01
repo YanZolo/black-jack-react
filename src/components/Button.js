@@ -5,10 +5,26 @@ class Button extends Component {
     render() {
         return (
             <>
-                <div>
-                    <button className="btn btn-outline-primary" onClick={this.props.clickContinue}>Continuer</button>
-                    <button className="btn btn-outline-primary">Stop</button>
-                </div>
+
+
+
+                {!this.props.playerStop &&
+                    <div>
+
+
+                        <button className="btn btn-outline-primary" onClick={this.props.clickContinue}>
+                            Continuer
+                        </button>
+
+                        <button className="btn btn-outline-danger" onClick={this.props.clickStop}>
+                            Stop
+                        </button>
+
+
+                    </div>}
+
+
+
             </>
         )
     }

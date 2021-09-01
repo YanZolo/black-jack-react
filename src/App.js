@@ -3,17 +3,21 @@ import Cards from './components/Cards';
 import Button from './components/Button';
 import Interface from './components/Interface';
 import "bootstrap/dist/css/bootstrap.min.css";
-// import deck from './components/Deck'
-// console.log(deck)
 
-const deck = ['2Co', '2Ca', '2Pi', '2Tr', '3Co', '3Ca',
-  '6Pi', '6Tr', '7Co', '7Ca', '7Pi', '7Tr',
-  '8Co', '8Ca', '8Pi', '8Tr', '9Co', '9Ca',
-  '9Pi', '9Tr', '10Co', '10Ca', '10Pi', '10Tr',
-  '11Co', '11Ca', '11Pi', '11Tr', 'JCo', 'JCa',
-  'JPi', 'JTr', 'QCo', 'QCa', 'QPi', 'QTr',
-  'KCo', 'KCa', 'KPi', 'KTr'
+const deck = [
+  { card: 2, suit: '💔' }, { card: 2, suit: '🔶' }, { card: 2, suit: '♠' }, { card: 2, suit: '♣' }, { card: 3, suit: '💔' }, { card: 3, suit: '🔶' },
+  { card: 3, suit: '♠' }, { card: 3, suit: '♣' }, { card: 4, suit: '💔' }, { card: 4, suit: '🔶' }, { card: 4, suit: '♠' }, { card: 4, suit: '♣' },
+  { card: 5, suit: '💔' }, { card: 5, suit: '🔶' }, { card: 5, suit: '♠' }, { card: 5, suit: '♣' }, { card: 6, suit: '💔' },
+  { card: 6, suit: '🔶' }, { card: 6, suit: '♠' }, { card: 6, suit: '♣' }, { card: 7, suit: '💔' }, { card: 7, suit: '🔶' },
+  { card: 7, suit: '♠' }, { card: 7, suit: '♣' }, { card: 8, suit: '💔' }, { card: 8, suit: '🔶' }, { card: 8, suit: '♠' },
+  { card: 8, suit: '♣' }, { card: 9, suit: '💔' }, { card: 9, suit: '🔶' }, { card: 9, suit: '♠' }, { card: 9, suit: '♣' },
+  { card: 10, suit: '💔' }, { card: 10, suit: '🔶' }, { card: 10, suit: '♠' }, { card: 10, suit: '♣' }, { card: 'A', suit: '💔' },
+  { card: 'A', suit: '🔶' }, { card: 'A', suit: '♠' }, { card: 'A', suit: '♣' }, { card: 'J', suit: '💔' }, { card: 'J', suit: '🔶' },
+  { card: 'J', suit: '♠' }, { card: 'J', suit: '♣' }, { card: 'Q', suit: '💔' }, { card: 'Q', suit: '🔶' }, { card: 'Q', suit: '♠' },
+  { card: 'Q', suit: '♣' }, { card: 'K', suit: '💔' }, { card: 'K', suit: '🔶' }, { card: 'K', suit: '♠' }, { card: 'K', suit: '♣' }
 ]
+
+let count = 0;
 
 class App extends Component {
   constructor(props) {
@@ -21,64 +25,181 @@ class App extends Component {
 
     this.state = {
       playerCards: [],
-      dealerCards: [],      
-      totalPlayer: '',
-      totalBanque: '',
-      start: false,
-      gameEnd: false
+      dealerCards: [],
+      scorePlayer: 0,
+      scoreDealer: 0,
+      gameStart: false,
+      gameEnd: false,
+      playerStop: false
+
     }
   }
 
   componentDidMount() {
-    // desk = () => {
 
-    //     return  newCard(desk)
-    // }
 
+  }
+
+  start = () => {
+
+    let newCard1 = this.newCard()
+    let newCard2 = this.newCard()
+
+    let playerCards = this.state.playerCards
+    this.setState({
+      gameStart: true,
+      playerCards: [...playerCards, newCard1, newCard2]
+    })
+    this.updateScorePlayer(newCard1, newCard2)
+
+  }
+
+  startDealer = () => {
+    let newCard1 = this.newCard()
+    // let newCard2 = this.newCard()
+    count ++
+    
+if (this.state.playerStop  && count < 2 ) {
+
+  console.log('dealer start')
+  this.setState({
+    dealerCards: [...this.state.dealerCards, newCard1 ]
+  })
+  this.updateScoreDealer(newCard1)
+
+}
+if(this.state.scoreDealer < 17 ) {
+  this.setState({
+    dealerCards: [...this.state.dealerCards, newCard1 ]
+  })
+   this.updateScoreDealer(newCard1)
+} 
+if(this.state.scoreDealer > 17 ) {
+  this.setState({
+    gameEnd: true
+  })
+}
+   
+  }
+
+
+  updateScorePlayer = (value1, value2) => {
+    let scorePlayer = this.state.scorePlayer
+
+    this.setState({ scorePlayer: scorePlayer += value1.card + value2.card })
+  }
+
+  updateScoreDealer = (value) => {
+    let scoreDealer = this.state.scoreDealer    
+    
+
+    this.setState({ scoreDealer: scoreDealer += value.card })
+    console.log('dealer score update') 
+
+    setTimeout(()=>{
+
+      this.rePlayDealer()
+    },2000)
+
+  }
+
+  rePlayDealer = () => {    
+    
+     this.startDealer()  // to fix 
   }
 
 
   newCard = () => {
     const randomCards = Math.floor(Math.random() * deck.length);
-   return deck[randomCards] ;
+    switch (deck[randomCards].card) {
+      case 'J':
+      case 'Q':
+      case 'K':
+        deck[randomCards].card = 10
+        break;
+      case 'A':
+        deck[randomCards].card = 11;
+        break;
+
+      default:
+        break;
+    }
+
+    return { card: deck[randomCards].card, suit: deck[randomCards].suit };
   }
 
-
-  calcul = () => {
-
-  }
 
   clickContinue = (e) => {
     e.preventDefault()
+    let newCard = this.newCard()
+    let playerCards = this.state.playerCards
+    
+      this.setState({
+        playerCards: [...playerCards, newCard],
+        scorePlayer: this.state.scorePlayer + newCard.card
+      })   
 
-    const randomCard = Math.floor(Math.random() * deck.length);
-    this.setState({ newCard: [...this.state.newCard, deck[randomCard]] })
+  }
+
+  clickStop = () => {
+    this.setState({ playerStop: true })
+    this.startDealer()
   }
 
   render() {
+
+    console.log('game start', this.state.gameStart)
+    console.log('---------------------------------------------')    
+    console.log('player cards', this.state.playerCards)
+    console.log('dealer cards', this.state.dealerCards)
+    console.log('---------------------------------------------')    
+    console.log('total player score', this.state.scorePlayer)
+    console.log('total dealer score', this.state.scoreDealer)
+    console.log('---------------------------------------------')    
+    console.log('player has stop', this.state.playerStop)
+    console.log('---------------------------------------------') 
+    console.log('game end', this.state.gameEnd)
+
 
 
     return (
       <>
         <h1>Black Jack Game</h1>
 
-        <Interfacer
-          containerPlayer={
-            <Cards startCard={this.state.newCard} />
-          }
+        {!this.state.gameStart &&
 
-          containerDealer={
+          <button className="btn btn-outline-success" onClick={this.start}>Start game</button>}
 
-          }
+        {this.state.gameStart &&
 
-          containerButtons={
-            <Button clickContinue={this.clickContinue} />
-          }
+          <Interface
 
-
+            scorePlayer={this.state.scorePlayer}
+            scoreDealer={this.state.scoreDealer}
+            playerStop ={this.state.playerStop}
+            gameEnd ={this.state.gameEnd}
 
 
-        />
+            containerPlayer={
+              this.state.playerCards.map((card) => {
+                return <Cards start={this.start} playerCard={card.card + ' ' +card.suit} />
+              })}
+
+
+
+            containerDealer={
+              this.state.dealerCards.map((card) => {
+                return <Cards start={this.start} dealerCard={card.card + ' ' +card.suit} playerStop={this.state.playerStop} />
+              })}
+
+            containerButtons={
+              <Button gameStart={this.state.gameStart} clickContinue={this.clickContinue} clickStop={this.clickStop} playerStop={this.state.playerStop} />
+            }
+
+          />
+        }
+
+
       </>
     )
   }

@@ -6,18 +6,68 @@ class Interface extends React.Component {
 
     render() {
 
-        return(
+        return (
+            <>
 
-            <div className='container-principal'>
+                <div>
+                    <p>Score Joueur: {this.props.scorePlayer}</p>
+                    <p>Score Dealer: {this.props.scoreDealer}</p>
 
-                <div className='container-player'>{this.props.containerPlayer}</div>
+                    {this.props.scorePlayer > 21 &&
+                        <p>YOU LOOSE</p>}
 
-                <div className='container-player'>{this.props.containerDealer}</div>
-                
-                <div className='container-player'>{this.props.containerButtons}</div>
+                    {this.props.scorePlayer === 21 &&
+                        <p>BLACK JACK</p>}
+
+                    {this.props.scorePlayer === 21 &&
+                        this.props.scoreDealer === 21 &&
+
+                        <p>DRAW</p>}
+
+                    {this.props.scorePlayer === this.props.scoreDealer &&
+                        this.props.scorePlayer !== 21 &&
+
+                        <p>DRAW</p>}
 
 
-            </div>
+                    {this.props.playerStop &&
+                        this.props.scorePlayer < this.props.scoreDealer &&
+                        this.props.scoreDealer <= 21 &&
+                        <p> YOU LOOSE</p>}
+
+                    {this.props.playerStop &&
+                        this.props.gameEnd &&
+                        this.props.scorePlayer <= 21 &&
+                        this.props.scoreDealer > 21 &&
+                        <p> YOU win</p>}
+
+                    {this.props.playerStop &&
+                        this.props.gameEnd &&
+                        this.props.scorePlayer <= 21 &&
+                        this.props.scoreDealer < this.props.scorePlayer &&
+                        <p> YOU win</p>}
+
+
+                </div>
+
+
+                <div className='container-principal d-flex justify-content-evenly '>
+
+                    <div className='col-2'>
+                        <div className=' container-player bg-primary  fs-1 p-5   '>{this.props.containerPlayer}</div>
+                    </div>
+
+                    <div className='container-button text-center position-absolute top-25 start-50 translate-middle'>{this.props.containerButtons}
+                    </div>
+
+                    <div className='col-2'>
+                        <div className='container-dealer bg-secondary  fs-1  p-5  '>{this.props.containerDealer}</div>
+                    </div>
+
+                </div>
+
+
+            </>
         )
     }
 }

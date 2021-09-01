@@ -4,9 +4,13 @@ const desk = [];
 
 for (let i = 0; i < cards.length; i++) {
     for (let j = 0; j < suits.length; j++) {
-        desk.push(cards[i] + suits[j])
+        desk.push({card: cards[i] , suit: suits[j]})
     };
 };
-console.log(desk.length);
+console.log(desk.flatMap((el)=>{
+     return el
+}))
 
-module.exports = desk
+
+
+

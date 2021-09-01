@@ -4,24 +4,30 @@ class Cards extends Component {
 
 
     render() {
-        // this.setState({ startingCards: this.state.cards[randomCards] })
 
-        console.log(this.props);
+
+
         return (
-            <div className='container'>
 
-                <div>
-                    <div>
-                        {this.props.startCard}
-                    </div>
 
-                    <div>
-                        {this.props.newCard}
+            <div>
+
+                <div className='card'>
+                    <div className=' bg-primary card-img '>
+                        {this.props.playerCard}
                     </div>
                 </div>
 
+                <div className='card'>
+                    <div className='bg-secondary card-img '>
+                        {this.props.dealerCard}
+                    </div>
+                </div>
 
-            </div>
+            </div >
+
+
+
         )
     }
 }
