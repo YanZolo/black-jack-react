@@ -1,0 +1,46 @@
+ body {
+     margin: 0;
+     padding: 0;
+     background-image: url("https://cdn03.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_JustBlackJack_image1600w.jpg");
+ }
+
+ .container-start-game {
+     text-align: center;
+     width: 100vw;
+     height: 100vh;
+ }
+
+ .title-principal {
+     margin: 50px auto;
+     font-size: 10rem;
+ }
+
+ .button-start {
+     color: gold;
+     margin: 100px auto;
+     font-size: 5rem;
+     background-color: transparent;
+     border-radius: 15px;
+     border: 2px solid gold;     
+     transition: 2s;
+ }
+ .button-start:hover {     
+     animation-name: flashLight;
+     animation-duration: 0.1s;
+     animation-iteration-count: infinite;
+     transition: 0.8s;
+ }
+
+ @keyframes flashLight {
+     0% {
+        border-color: yellow;
+         box-shadow: 5px 5px 5px 5px white,
+         -5px -5px 5px 5px white ;
+
+     }
+     100% {
+         border-color: red;
+         font-size: 4.9rem;
+        
+     }
+ }
