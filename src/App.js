@@ -57,29 +57,29 @@ class App extends Component {
   startDealer = () => {
     let newCard1 = this.newCard()
     // let newCard2 = this.newCard()
-    count ++
-    
-if (this.state.playerStop  && count < 2 ) {
+    count++
 
-  console.log('dealer start')
-  this.setState({
-    dealerCards: [...this.state.dealerCards, newCard1 ]
-  })
-  this.updateScoreDealer(newCard1)
+    if (this.state.playerStop && count < 2) {
 
-}
-if(this.state.scoreDealer < 17 ) {
-  this.setState({
-    dealerCards: [...this.state.dealerCards, newCard1 ]
-  })
-   this.updateScoreDealer(newCard1)
-} 
-if(this.state.scoreDealer > 17 ) {
-  this.setState({
-    gameEnd: true
-  })
-}
-   
+      console.log('dealer start')
+      this.setState({
+        dealerCards: [...this.state.dealerCards, newCard1]
+      })
+      this.updateScoreDealer(newCard1)
+
+    }
+    if (this.state.scoreDealer < 17) {
+      this.setState({
+        dealerCards: [...this.state.dealerCards, newCard1]
+      })
+      this.updateScoreDealer(newCard1)
+    }
+    if (this.state.scoreDealer > 17) {
+      this.setState({
+        gameEnd: true
+      })
+    }
+
   }
 
 
@@ -90,22 +90,22 @@ if(this.state.scoreDealer > 17 ) {
   }
 
   updateScoreDealer = (value) => {
-    let scoreDealer = this.state.scoreDealer    
-    
+    let scoreDealer = this.state.scoreDealer
+
 
     this.setState({ scoreDealer: scoreDealer += value.card })
-    console.log('dealer score update') 
+    console.log('dealer score update')
 
-    setTimeout(()=>{
+    setTimeout(() => {
 
       this.rePlayDealer()
-    },2000)
+    }, 2000)
 
   }
 
-  rePlayDealer = () => {    
-    
-     this.startDealer()  // to fix 
+  rePlayDealer = () => {
+
+    this.startDealer()  // to fix 
   }
 
 
@@ -133,11 +133,11 @@ if(this.state.scoreDealer > 17 ) {
     e.preventDefault()
     let newCard = this.newCard()
     let playerCards = this.state.playerCards
-    
-      this.setState({
-        playerCards: [...playerCards, newCard],
-        scorePlayer: this.state.scorePlayer + newCard.card
-      })   
+
+    this.setState({
+      playerCards: [...playerCards, newCard],
+      scorePlayer: this.state.scorePlayer + newCard.card
+    })
 
   }
 
@@ -149,21 +149,21 @@ if(this.state.scoreDealer > 17 ) {
   render() {
 
     console.log('game start', this.state.gameStart)
-    console.log('---------------------------------------------')    
+    console.log('---------------------------------------------')
     console.log('player cards', this.state.playerCards)
     console.log('dealer cards', this.state.dealerCards)
-    console.log('---------------------------------------------')    
+    console.log('---------------------------------------------')
     console.log('total player score', this.state.scorePlayer)
     console.log('total dealer score', this.state.scoreDealer)
-    console.log('---------------------------------------------')    
+    console.log('---------------------------------------------')
     console.log('player has stop', this.state.playerStop)
-    console.log('---------------------------------------------') 
+    console.log('---------------------------------------------')
     console.log('game end', this.state.gameEnd)
 
 
 
     return (
-      <>
+      <div className="container-start-game">
         <h1>Black Jack Game</h1>
 
         {!this.state.gameStart &&
@@ -176,20 +176,20 @@ if(this.state.scoreDealer > 17 ) {
 
             scorePlayer={this.state.scorePlayer}
             scoreDealer={this.state.scoreDealer}
-            playerStop ={this.state.playerStop}
-            gameEnd ={this.state.gameEnd}
+            playerStop={this.state.playerStop}
+            gameEnd={this.state.gameEnd}
 
 
             containerPlayer={
               this.state.playerCards.map((card) => {
-                return <Cards start={this.start} playerCard={card.card + ' ' +card.suit} />
+                return <Cards start={this.start} playerCard={card.card + ' ' + card.suit} />
               })}
 
 
 
             containerDealer={
               this.state.dealerCards.map((card) => {
-                return <Cards start={this.start} dealerCard={card.card + ' ' +card.suit} playerStop={this.state.playerStop} />
+                return <Cards start={this.start} dealerCard={card.card + ' ' + card.suit} playerStop={this.state.playerStop} />
               })}
 
             containerButtons={
@@ -200,7 +200,7 @@ if(this.state.scoreDealer > 17 ) {
         }
 
 
-      </>
+      </div>
     )
   }
 }

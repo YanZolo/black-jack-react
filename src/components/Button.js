@@ -9,14 +9,14 @@ class Button extends Component {
 
 
                 {!this.props.playerStop &&
-                    <div>
+                    <div className="container-table-buttons">
 
 
-                        <button className="btn btn-outline-primary" onClick={this.props.clickContinue}>
+                        <button className="button-continu btn btn-outline-primary" onClick={this.props.clickContinue}>
                             Continuer
                         </button>
 
-                        <button className="btn btn-outline-danger" onClick={this.props.clickStop}>
+                        <button className="button-stop btn btn-outline-danger" onClick={this.props.clickStop}>
                             Stop
                         </button>
 
