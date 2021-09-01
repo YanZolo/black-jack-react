@@ -163,12 +163,19 @@ class App extends Component {
 
 
     return (
-      <div className="container-start-game">
-        <h1>Black Jack Game</h1>
 
-        {!this.state.gameStart &&
+      <>
 
-          <button className="btn btn-outline-success" onClick={this.start}>Start game</button>}
+        <div className="container-start-game">
+
+
+          <h1>Black Jack Game</h1>
+
+          {!this.state.gameStart &&
+
+            <button className="btn btn-outline-success" onClick={this.start}>Start game</button>}
+
+        </div>
 
         {this.state.gameStart &&
 
@@ -200,7 +207,7 @@ class App extends Component {
         }
 
 
-      </div>
+      </>
     )
   }
 }
