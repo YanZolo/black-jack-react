@@ -3,6 +3,7 @@ import Cards from './components/Cards';
 import Button from './components/Button';
 import Interface from './components/Interface';
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
 
 
 const deck = [
@@ -56,7 +57,7 @@ class App extends Component {
 
   startDealer = () => {
     let newCard1 = this.newCard()
-    // let newCard2 = this.newCard()
+
     count++
 
     if (this.state.playerStop && count < 2) {
@@ -95,13 +96,25 @@ class App extends Component {
     console.log('dealer score update')
 
     setTimeout(() => {
+<<<<<<< HEAD
       this.rePlayDealer()
+=======
+
+      this.startDealer()
+>>>>>>> d241972246314c6b8805e5aa9cec68d2e0ca5054
     }, 2000)
   }
 
+<<<<<<< HEAD
   rePlayDealer = () => {
     this.startDealer()  // to fix 
   }
+=======
+  // rePlayDealer = () => {
+
+  //   this.startDealer()  // to fix 
+  // }
+>>>>>>> d241972246314c6b8805e5aa9cec68d2e0ca5054
 
 
   newCard = () => {
@@ -159,12 +172,26 @@ class App extends Component {
 
     return (
       <>
+<<<<<<< HEAD
         <div className="container-start-game">
           <h1>Black Jack Game</h1>
           {!this.state.gameStart &&
             <button className="btn btn-outline-success" onClick={this.start}>Start game</button>}
         </div>
+=======
+        {!this.state.gameStart &&
+          <div className="container-start-game">
 
+
+            {/* <h1 className="title-principal">Black Jack Game</h1> */}
+
+
+
+            <button className="button-start " onClick={this.start}>Start game</button>
+>>>>>>> d241972246314c6b8805e5aa9cec68d2e0ca5054
+
+          </div>
+        }
         {this.state.gameStart &&
 
           <Interface
