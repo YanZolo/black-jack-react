@@ -4,6 +4,7 @@ import Button from './components/Button';
 import Interface from './components/Interface';
 import "bootstrap/dist/css/bootstrap.min.css";
 
+
 const deck = [
   { card: 2, suit: '💔' }, { card: 2, suit: '🔶' }, { card: 2, suit: '♠' }, { card: 2, suit: '♣' }, { card: 3, suit: '💔' }, { card: 3, suit: '🔶' },
   { card: 3, suit: '♠' }, { card: 3, suit: '♣' }, { card: 4, suit: '💔' }, { card: 4, suit: '🔶' }, { card: 4, suit: '♠' }, { card: 4, suit: '♣' },
@@ -41,7 +42,6 @@ class App extends Component {
   }
 
   start = () => {
-
     let newCard1 = this.newCard()
     let newCard2 = this.newCard()
 
@@ -61,12 +61,11 @@ class App extends Component {
 
     if (this.state.playerStop && count < 2) {
 
-      console.log('dealer start')
+      // console.log('dealer start')
       this.setState({
         dealerCards: [...this.state.dealerCards, newCard1]
       })
       this.updateScoreDealer(newCard1)
-
     }
     if (this.state.scoreDealer < 17) {
       this.setState({
@@ -79,7 +78,6 @@ class App extends Component {
         gameEnd: true
       })
     }
-
   }
 
 
@@ -97,14 +95,11 @@ class App extends Component {
     console.log('dealer score update')
 
     setTimeout(() => {
-
       this.rePlayDealer()
     }, 2000)
-
   }
 
   rePlayDealer = () => {
-
     this.startDealer()  // to fix 
   }
 
@@ -148,33 +143,26 @@ class App extends Component {
 
   render() {
 
-    console.log('game start', this.state.gameStart)
-    console.log('---------------------------------------------')
-    console.log('player cards', this.state.playerCards)
-    console.log('dealer cards', this.state.dealerCards)
-    console.log('---------------------------------------------')
-    console.log('total player score', this.state.scorePlayer)
-    console.log('total dealer score', this.state.scoreDealer)
-    console.log('---------------------------------------------')
-    console.log('player has stop', this.state.playerStop)
-    console.log('---------------------------------------------')
-    console.log('game end', this.state.gameEnd)
+    // console.log('game start', this.state.gameStart)
+    // console.log('---------------------------------------------')
+    // console.log('player cards', this.state.playerCards)
+    // console.log('dealer cards', this.state.dealerCards)
+    // console.log('---------------------------------------------')
+    // console.log('total player score', this.state.scorePlayer)
+    // console.log('total dealer score', this.state.scoreDealer)
+    // console.log('---------------------------------------------')
+    // console.log('player has stop', this.state.playerStop)
+    // console.log('---------------------------------------------')
+    // console.log('game end', this.state.gameEnd)
 
 
 
     return (
-
       <>
-
         <div className="container-start-game">
-
-
           <h1>Black Jack Game</h1>
-
           {!this.state.gameStart &&
-
             <button className="btn btn-outline-success" onClick={this.start}>Start game</button>}
-
         </div>
 
         {this.state.gameStart &&
@@ -188,15 +176,15 @@ class App extends Component {
 
 
             containerPlayer={
-              this.state.playerCards.map((card) => {
-                return <Cards start={this.start} playerCard={card.card + ' ' + card.suit} />
+              this.state.playerCards.map((card, index) => {
+                return <Cards key={index} start={this.start} playerCard={card.card + ' ' + card.suit} />
               })}
 
 
 
             containerDealer={
-              this.state.dealerCards.map((card) => {
-                return <Cards start={this.start} dealerCard={card.card + ' ' + card.suit} playerStop={this.state.playerStop} />
+              this.state.dealerCards.map((card, index) => {
+                return <Cards key={index} start={this.start} dealerCard={card.card + ' ' + card.suit} playerStop={this.state.playerStop} />
               })}
 
             containerButtons={
