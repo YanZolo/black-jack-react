@@ -4,16 +4,21 @@ import '../App.css'
 class Cards extends Component {
     render() {
         return (
-            <div className="container-table-cards">
 
-                <div className='player card card-img'>
-                    {this.props.playerCard}
+
+            <div >
+                {!this.props.playerStop &&
+                <div key='player' className='card-player img-fluid border-1 '>
+                <img className='img-fluid' src={this.props.playerCard} alt="player-Cards" />                    
                 </div>
+                 } 
 
-                <div className='player card card-img'>
-                    {this.props.dealerCard}
+
+                {this.props.playerStop && 
+                <div key='dealer' className='card-dealer img-fluid border-1'>
+                    <img className='img-fluid' src={ this.props.dealerCard} alt="dearler-Cards" />
                 </div>
-
+                } 
             </div >
         )
     }
