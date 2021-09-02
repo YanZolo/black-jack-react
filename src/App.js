@@ -1,21 +1,22 @@
 import React, { Component } from 'react';
 import Cards from './components/Cards';
 import Button from './components/Button';
-import Interface from './components/Interface';
+import TableInterface from './components/TableInterface';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import StartingInterface from './components/StartingInterface';
 
 const deck = [
-  { card: 2, suit: '💔' }, { card: 2, suit: '🔶' }, { card: 2, suit: '♠' }, { card: 2, suit: '♣' }, { card: 3, suit: '💔' }, { card: 3, suit: '🔶' },
-  { card: 3, suit: '♠' }, { card: 3, suit: '♣' }, { card: 4, suit: '💔' }, { card: 4, suit: '🔶' }, { card: 4, suit: '♠' }, { card: 4, suit: '♣' },
-  { card: 5, suit: '💔' }, { card: 5, suit: '🔶' }, { card: 5, suit: '♠' }, { card: 5, suit: '♣' }, { card: 6, suit: '💔' },
-  { card: 6, suit: '🔶' }, { card: 6, suit: '♠' }, { card: 6, suit: '♣' }, { card: 7, suit: '💔' }, { card: 7, suit: '🔶' },
-  { card: 7, suit: '♠' }, { card: 7, suit: '♣' }, { card: 8, suit: '💔' }, { card: 8, suit: '🔶' }, { card: 8, suit: '♠' },
-  { card: 8, suit: '♣' }, { card: 9, suit: '💔' }, { card: 9, suit: '🔶' }, { card: 9, suit: '♠' }, { card: 9, suit: '♣' },
-  { card: 10, suit: '💔' }, { card: 10, suit: '🔶' }, { card: 10, suit: '♠' }, { card: 10, suit: '♣' }, { card: 'A', suit: '💔' },
-  { card: 'A', suit: '🔶' }, { card: 'A', suit: '♠' }, { card: 'A', suit: '♣' }, { card: 'J', suit: '💔' }, { card: 'J', suit: '🔶' },
-  { card: 'J', suit: '♠' }, { card: 'J', suit: '♣' }, { card: 'Q', suit: '💔' }, { card: 'Q', suit: '🔶' }, { card: 'Q', suit: '♠' },
-  { card: 'Q', suit: '♣' }, { card: 'K', suit: '💔' }, { card: 'K', suit: '🔶' }, { card: 'K', suit: '♠' }, { card: 'K', suit: '♣' }
+  { card: 2, suit: '♡ ' }, { card: 2, suit: '♢' }, { card: 2, suit: '♠' }, { card: 2, suit: '♣' }, { card: 3, suit: '♡ ' }, { card: 3, suit: '♢' },
+  { card: 3, suit: '♠' }, { card: 3, suit: '♣' }, { card: 4, suit: '♡ ' }, { card: 4, suit: '♢' }, { card: 4, suit: '♠' }, { card: 4, suit: '♣' },
+  { card: 5, suit: '♡ ' }, { card: 5, suit: '♢' }, { card: 5, suit: '♠' }, { card: 5, suit: '♣' }, { card: 6, suit: '♡ ' },
+  { card: 6, suit: '♢' }, { card: 6, suit: '♠' }, { card: 6, suit: '♣' }, { card: 7, suit: '♡ ' }, { card: 7, suit: '♢' },
+  { card: 7, suit: '♠' }, { card: 7, suit: '♣' }, { card: 8, suit: '♡ ' }, { card: 8, suit: '♢' }, { card: 8, suit: '♠' },
+  { card: 8, suit: '♣' }, { card: 9, suit: '♡ ' }, { card: 9, suit: '♢' }, { card: 9, suit: '♠' }, { card: 9, suit: '♣' },
+  { card: 10, suit: '♡ ' }, { card: 10, suit: '♢' }, { card: 10, suit: '♠' }, { card: 10, suit: '♣' }, { card: 'A', suit: '♡ ' },
+  { card: 'A', suit: '♢' }, { card: 'A', suit: '♠' }, { card: 'A', suit: '♣' }, { card: 'J', suit: '♡ ' }, { card: 'J', suit: '♢' },
+  { card: 'J', suit: '♠' }, { card: 'J', suit: '♣' }, { card: 'Q', suit: '♡ ' }, { card: 'Q', suit: '♢' }, { card: 'Q', suit: '♠' },
+  { card: 'Q', suit: '♣' }, { card: 'K', suit: '♡ ' }, { card: 'K', suit: '♢' }, { card: 'K', suit: '♠' }, { card: 'K', suit: '♣' }
 ]
 
 let count = 0;
@@ -42,17 +43,17 @@ class App extends Component {
   }
 
   start = () => {
+    setTimeout(() => {
+      let newCard1 = this.newCard()
+      let newCard2 = this.newCard()
 
-    let newCard1 = this.newCard()
-    let newCard2 = this.newCard()
-
-    let playerCards = this.state.playerCards
-    this.setState({
-      gameStart: true,
-      playerCards: [...playerCards, newCard1, newCard2]
-    })
-    this.updateScorePlayer(newCard1, newCard2)
-
+      let playerCards = this.state.playerCards
+      this.setState({
+        gameStart: true,
+        playerCards: [...playerCards, newCard1, newCard2]
+      })
+      this.updateScorePlayer(newCard1, newCard2)
+    }, 2000)
   }
 
   startDealer = () => {
@@ -144,7 +145,8 @@ class App extends Component {
 
   clickStop = () => {
     this.setState({ playerStop: true })
-    this.startDealer()
+    this.state.scorePlayer <= 21 &&
+      this.startDealer()
   }
 
   render() {
@@ -167,20 +169,11 @@ class App extends Component {
 
       <>
         {!this.state.gameStart &&
-          <div className="container-start-game">
-
-
-            {/* <h1 className="title-principal">Black Jack Game</h1> */}
-
-
-
-            <button className="button-start " onClick={this.start}>Start game</button>
-
-          </div>
+          <StartingInterface start={this.start} />
         }
         {this.state.gameStart &&
 
-          <Interface
+          <TableInterface
 
             scorePlayer={this.state.scorePlayer}
             scoreDealer={this.state.scoreDealer}
@@ -190,17 +183,21 @@ class App extends Component {
 
             containerPlayer={
               this.state.playerCards.map((card) => {
-                return <Cards start={this.start} playerCard={card.card + ' ' + card.suit} />
-              })}
+                
+                  return <Cards start={this.start} playerCard={card.card + ' ' + card.suit} />
+                })
+             
+            }
+           
 
-
-
-            containerDealer={
+            containerDealer={this.state.playerStop &&
               this.state.dealerCards.map((card) => {
-                return <Cards start={this.start} dealerCard={card.card + ' ' + card.suit} playerStop={this.state.playerStop} />
+                return <Cards start={this.startDealer} dealerCard={card.card + ' ' + card.suit} playerStop={this.state.playerStop} />
               })}
 
             containerButtons={
+              !this.state.playerStop &&
+              this.state.scorePlayer <= 21 &&
               <Button gameStart={this.state.gameStart} clickContinue={this.clickContinue} clickStop={this.clickStop} playerStop={this.state.playerStop} />
             }
 

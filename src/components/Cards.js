@@ -10,20 +10,13 @@ class Cards extends Component {
         return (
 
 
-            <div className="container-table-cards">
-
-                <div className='card-player card'>
-                    <div className=' bg-primary card-img '>
-                        {this.props.playerCard}
-                    </div>
+            <div className='container-cards'>
+                <div key='player' className='card-player bg-light me-5 border-1 '>
+                    {this.props.playerCard}
                 </div>
-
-                <div className='card-dealer card'>
-                    <div className='bg-secondary card-img '>
-                        {this.props.dealerCard}
-                    </div>
+                <div key='dealer' className='card-dealer bg-light me-5 border-1'>
+                    {this.props.dealerCard}
                 </div>
-
             </div >
 
 
