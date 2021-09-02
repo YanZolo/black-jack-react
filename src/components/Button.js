@@ -15,7 +15,6 @@ class Button extends Component {
                         <button className="button-continu btn btn-outline-primary" onClick={this.props.clickContinue}>
                             Continuer
                         </button>
-
                         <button className="button-stop btn btn-outline-danger" onClick={this.props.clickStop}>
                             Stop
                         </button>

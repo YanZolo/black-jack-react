@@ -119,7 +119,9 @@ body {
     background-image: url("./img/free-casino-table-cloth-texture-1637741-1280x1280.jpg");
     border: 2px solid gold;
     width: 100%;
-    height: 100%;
+    height: 100%;  
+    padding-bottom: 20px; 
+    z-index: -999; 
 }
 
 .score-container {
@@ -130,12 +132,13 @@ body {
     color: black;
 }
 
+
 .container-table {
     display: grid;
     grid-template-columns: 2fr 1fr 2fr;
     grid-row: 1fr;
     height: 100%;
-
+    
 }
 
 .table-left-player {
@@ -163,17 +166,29 @@ body {
     width: 150px;
     height: auto;
     border-radius: 10px;
-
+    
 }
 
 .card-dealer {
     width: 150px;
     height: auto;
     border-radius: 10px;
-
+    
 }
 
-/* .player {
-    width: 20vw;
-    /* height: 20vh; 
-} */
+/*----- component Replay INTERFACE -----*/
+
+
+.replay-interface {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("./img/blackjack-1.jpg");
+    background-size:cover; 
+    text-align: center;  
+}
+
+.button-replay {
+    width: 300px;
+    margin: auto;
+    margin-top: 200px;
+}
