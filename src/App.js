@@ -23,7 +23,7 @@ const deck = [
   { card: 'Q', suit: img_queen_of_spades }, { card: 'K', suit: img_king_of_clubs }, { card: 'K', suit: img_king_of_diamonds }, { card: 'K', suit: img_king_of_hearts }, { card: 'K', suit: img_king_of_spades }
 ]
 
-let count = 0;
+
 
 class App extends Component {
   constructor(props) {
@@ -38,7 +38,7 @@ class App extends Component {
       gameEnd: false,
       playerStop: false,
       dealerStop: false
-      
+
 
     }
   }
@@ -60,57 +60,53 @@ class App extends Component {
       })
       this.updateScorePlayer(newCard1, newCard2)
     }, 500)
+
   }
 
   startDealer = () => {
     let newCard1 = this.newCard()
-
-    count++
-
-    if (this.state.playerStop && count < 2) {
-
-      // console.log('dealer start')
+    
+    if (this.state.scoreDealer <= 17) {
       this.setState({
         dealerCards: [...this.state.dealerCards, newCard1]
       })
       this.updateScoreDealer(newCard1)
     }
-    if (this.state.scoreDealer < 17) {
-      this.setState({
-        dealerCards: [...this.state.dealerCards, newCard1]
-      })
-      this.updateScoreDealer(newCard1)
-    }
+
     if (this.state.scoreDealer > 17) {
-      this.setState({       
+      this.setState({
         dealerStop: true
       })
-      setTimeout(()=>{
-        this.setState({gameEnd: true})
-      },3000)
+      setTimeout(() => {
+        this.setState({ gameEnd: true })
+      }, 5000)
     }
+
   }
+
 
 
   updateScorePlayer = (value1, value2) => {
     let scorePlayer = this.state.scorePlayer
 
     this.setState({ scorePlayer: scorePlayer += value1.card + value2.card })
+    console.log('player score update')
+    setTimeout(() => {
+      scorePlayer > 21 &&
+        this.setState({ gameEnd: true })
+    }, 1000)
   }
 
   updateScoreDealer = (value) => {
     let scoreDealer = this.state.scoreDealer
-
 
     this.setState({ scoreDealer: scoreDealer += value.card })
     console.log('dealer score update')
 
     setTimeout(() => {
       this.startDealer()
-    }, 2000)
+    }, 1000)
   }
-
-
 
   newCard = () => {
     const randomCards = Math.floor(Math.random() * deck.length);
@@ -127,7 +123,6 @@ class App extends Component {
       default:
         break;
     }
-
     return { card: deck[randomCards].card, suit: deck[randomCards].suit };
   }
 
@@ -151,37 +146,11 @@ class App extends Component {
   }
 
   handleReplay = () => {
-    
-      this.setState({      
-        playerCards: [],
-        dealerCards: [],
-        scorePlayer: 0,
-        scoreDealer: 0,
-        gameEnd: false,
-        playerStop: false,
-        gameStart: true
-      })
-      count = 0;
-      this.start()
-     
-   
+    window.location.reload();
+    return false;
   }
 
   render() {
-
-    // console.log('game start', this.state.gameStart)
-    // console.log('---------------------------------------------')
-    // console.log('player cards', this.state.playerCards)
-    // console.log('dealer cards', this.state.dealerCards)
-    // console.log('---------------------------------------------')
-    // console.log('total player score', this.state.scorePlayer)
-    // console.log('total dealer score', this.state.scoreDealer)
-    // console.log('---------------------------------------------')
-    // console.log('player has stop', this.state.playerStop)
-    // console.log('---------------------------------------------')
-    // console.log('game end', this.state.gameEnd)
-
-
 
     return (
       <>
@@ -193,8 +162,8 @@ class App extends Component {
 
         {
           this.state.gameStart &&
-          !this.state.gameEnd &&        
-          
+          !this.state.gameEnd &&
+
 
           <TableInterface
             scorePlayer={this.state.scorePlayer}
@@ -227,8 +196,8 @@ class App extends Component {
           />
         }
 
-        {this.state.gameEnd &&          
-          <ReplayInterface replay={this.handleReplay} />                         
+        {this.state.gameEnd &&
+          <ReplayInterface replay={this.handleReplay} />
         }
 
 

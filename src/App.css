@@ -1,13 +1,16 @@
-@font-face {
-    font-family: "Black Jack W05 Regular5103108";
-    src: url("./fonts/Fonts/5103108/037f6d30-dc1b-40a4-b0a6-ccdb840adff6.woff2") format("woff2");
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital@1&family=Press+Start+2P&family=Zen+Dots&display=swap');
+
+/* font-family: 'Poppins', sans-serif;
+font-family: 'Press Start 2P', cursive;
+font-family: 'Zen Dots', cursive; */
 
 body {
     margin: 0;
     padding: 0;
     box-sizing: border-box !important;
-    font-family: "Black Jack W05 Regular5103108";
+    font-family: 'Zen Dots', cursive;
+    background-color: black;
+    overflow: hidden; 
 }
 
 .display-flex {
@@ -67,6 +70,7 @@ body {
     width: 100vw;
     height: 100vh;
     transition: ease-out;
+    font-family: 'Zen Dots', cursive;
 }
 
 .title-principal {
@@ -76,12 +80,12 @@ body {
 
 .button-start {
     position: absolute;
-    left: 30%;
-    top: 15%;
-    color: gold;
+    left: 5%;
+    top: 75%;
+    color: #C8A501;
     /* margin: 130px auto; */
-    font-size: 6rem;
-    font-weight: 800;
+    font-size: 4rem;
+    font-weight: 500;
     background-color: rgba(26, 26, 26, 0.527);
     border-radius: 15px;
     border: 2px solid gold;
@@ -95,7 +99,9 @@ body {
     animation-iteration-count: infinite;
     animation-direction: alternate;
     transition: 0.5s;
-    transform: scale(1.005);
+    transform: scale(1.001);
+    box-shadow: 2px 2px 5px 2px white, -2px -2px 5px 2px rgba(255, 255, 255, 0.685);
+
 }
 
 /* @keyframes flashLight {
@@ -116,20 +122,58 @@ body {
 /*----- component TABLE INTERFACE -----*/
 
 .container-principal {
-    background-image: url("./img/free-casino-table-cloth-texture-1637741-1280x1280.jpg");
-    border: 2px solid gold;
-    width: 100%;
-    height: 100%;  
-    padding-bottom: 20px; 
-    z-index: -999; 
-}
+    background-image: url('https://p4.wallpaperbetter.com/wallpaper/735/479/671/paisley-pattern-wallpaper-preview.jpg');
+    background-size:cover;
+    
+
+
+} 
+
 
 .score-container {
-    width: 100vw;
-    height: 20rem;
-    font-weight: 700;
-    font-size: 3rem;
-    color: black;
+    display: flex;
+    justify-content: space-around;
+    /* margin-top: 20px; */
+    width: 100%;
+    height: 100%;
+    font-weight: 500;
+    font-size: 2rem;
+    color: silver;    
+}
+.result-container {
+    color: #BB1F1B;
+    font-size: 4rem;
+    font-weight: 900;
+    font-style: italic;
+    font-family: 'Poppins', sans-serif;
+    
+}
+
+.score-player {   
+    border: 1px solid #C8A501;
+    border-radius: 10px;
+    width: 350px;
+    align-self: flex-end;
+    margin-top: 100px;
+    font-family: 'Poppins', sans-serif;
+
+}
+.score-player>span {   
+    color: #C8A501;
+    font-size: 1.5em;
+}
+
+.score-dealer {    
+    border: 1px solid #C8A501;
+    border-radius: 10px;
+    width: 350px;
+    align-self: flex-end;
+margin-top: 20px;
+font-family: 'Poppins', sans-serif;
+}
+.score-dealer>span {   
+    color: #C8A501;
+    font-size: 1.5em;
 }
 
 
@@ -137,27 +181,27 @@ body {
     display: grid;
     grid-template-columns: 2fr 1fr 2fr;
     grid-row: 1fr;
-    height: 100%;
-    
+    height: 100vh;
+    margin-top: 50px; 
+    justify-items: center;   
 }
 
 .table-left-player {
     grid-column: 1/2;
+    display: flex;    
 }
 
 .table-middle-button {
     grid-column: 2/3;
-    align-self: flex-end;
-    margin-bottom: 20%;
+    align-self: center;    
+    margin-bottom: 30%;
 }
 
 .table-right-dealer {
     grid-column: 3/4;
+    display: flex;
+   
 }
-
-
-
-
 .container-cards {
     background-color: transparent;
 }
@@ -165,14 +209,18 @@ body {
 .card-player {
     width: 150px;
     height: auto;
+    border: 1px solid #C8A501;
     border-radius: 10px;
-    
+    transform: scale(1);  
+    margin-left: -50px;     
 }
-
 .card-dealer {
     width: 150px;
     height: auto;
+    border: 1px solid #C8A501;
     border-radius: 10px;
+    transform: scale(1);
+    margin-right: -50px;     
     
 }
 
@@ -184,11 +232,24 @@ body {
     height: 100vh;
     background-image: url("./img/blackjack-1.jpg");
     background-size:cover; 
-    text-align: center;  
+    text-align: center; 
+    font-family: 'Zen Dots', cursive;
+    /* font-family: 'Press Start 2P', cursive;  */
+}
+.button-replay {
+    margin-top: 250px;
+    color: #C8A501;    
+    font-size: 3rem;
+    font-weight: 800;
+    background-color: rgba(26, 26, 26, 0.527);
+    border-radius: 15px;
+    border: 2px solid #C8A501;
+    box-shadow: inset 0px 0px 2px 1px rgba(255, 249, 172, 0.61), inset -0px -0px 2px 1px rgba(255, 249, 172, 0.61);
 }
 
-.button-replay {
-    width: 300px;
-    margin: auto;
-    margin-top: 200px;
+.button-replay:hover {
+    background-color: transparent;    
+    transition: 0.5s;
+    transform: scale(1.005);
 }
+
