@@ -50,7 +50,7 @@ const Interface = (props) => {
                     <div className='table-button text-center position-absolute top-25 start-50 translate-middle'>{props.containerButtons}
                     </div>
 
-                    <div className='table-dealer bg-secondary  fs-1  p-5  '>{props.containerDealer}</div>
+                    <div className='table-dealer fs-1  p-5  '>{props.containerDealer}</div>
                 </div>
             </div>
         </>
