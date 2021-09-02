@@ -12,11 +12,11 @@ class Button extends Component {
                     <div className="container-table-buttons">
 
 
-                        <button className="button-continu btn btn-outline-primary bg-light" onClick={this.props.clickContinue}>
+                        <button className="button-continue btn-outline-light bg-primary text-light" onClick={this.props.clickContinue}>
                             Continuer
-                        </button>
+                        </button> <br />
 
-                        <button className="button-stop btn btn-outline-danger bg-light" onClick={this.props.clickStop}>
+                        <button className="button-stop btn-outline-light bg-danger text-light" onClick={this.props.clickStop}>
                             Stop
                         </button>
 

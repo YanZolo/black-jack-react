@@ -100,14 +100,9 @@ class App extends Component {
     console.log('dealer score update')
 
     setTimeout(() => {
-<<<<<<< HEAD
-      this.startDealer()
-    }, 2000)
-=======
 
       this.startDealer()
     }, 1000)
->>>>>>> 732f9fd5cc73dcf848c75e1a4522640e14308b97
   }
 
   // rePlayDealer = () => {
@@ -170,28 +165,9 @@ class App extends Component {
     // console.log('game end', this.state.gameEnd)
     return (
       <>
-<<<<<<< HEAD
-        {/* <div className="container-start-game">
-          <h1>Black Jack Game</h1>
-          {!this.state.gameStart &&
-            <button className="btn btn-outline-success" onClick={this.start}>Start game</button>}
-        </div> */}
-        {!this.state.gameStart &&
-          <div className="container-start-game">
-
-
-            {/* <h1 className="title-principal">Black Jack Game</h1> */}
-
-
-
-            <button className="button-start " onClick={this.start}>Start game</button>
-
-          </div>
-=======
 
         {!this.state.gameStart &&
           <StartingInterface start={this.start} />
->>>>>>> 732f9fd5cc73dcf848c75e1a4522640e14308b97
         }
 
         {
