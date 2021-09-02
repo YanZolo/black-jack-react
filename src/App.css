@@ -1,2 +1,179 @@
-@import './_App2.css';
+@font-face {
+    font-family: "Black Jack W05 Regular5103108";
+    src: url("./fonts/Fonts/5103108/037f6d30-dc1b-40a4-b0a6-ccdb840adff6.woff2") format("woff2");
+}
 
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box !important;
+    font-family: "Black Jack W05 Regular5103108";
+}
+
+.display-flex {
+    display: flex;
+}
+
+.flex-between {
+    justify-content: space-between;
+}
+
+.flex-arround {
+    justify-content: space-around;
+}
+
+.flex-evenly {
+    justify-content: space-evenly;
+}
+
+.flex-direction-row {
+    flex-direction: row;
+}
+
+.flex-direction-col {
+    flex-direction: column;
+}
+
+.justify-self {
+    justify-self: center;
+}
+
+.align-self-center {
+    align-self: center;
+}
+
+.align-self-end {
+    align-self: flex-end;
+}
+
+.border-1 {
+    border: 3px solid #efefef;
+}
+
+.border-2 {
+    border: 3px solid black;
+}
+
+.border-3 {
+    border: 3px solid rgb(26, 26, 26);
+}
+
+/*----- component STARTING INTERFACE -----*/
+
+.container-start-game {
+    background-image: url("https://cdn03.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_JustBlackJack_image1600w.jpg");
+    background-size: cover;
+    text-align: center;
+    width: 100vw;
+    height: 100vh;
+    transition: ease-out;
+}
+
+.title-principal {
+    margin: 50px auto;
+    font-size: 10rem;
+}
+
+.button-start {
+    position: absolute;
+    left: 30%;
+    top: 15%;
+    color: gold;
+    /* margin: 130px auto; */
+    font-size: 6rem;
+    font-weight: 800;
+    background-color: rgba(26, 26, 26, 0.527);
+    border-radius: 15px;
+    border: 2px solid gold;
+    box-shadow: inset 0px 0px 2px 1px rgba(255, 249, 172, 0.61), inset -0px -0px 2px 1px rgba(255, 249, 172, 0.61);
+}
+
+.button-start:hover {
+    background-color: transparent;
+    animation-name: flashLight;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    transition: 0.5s;
+    transform: scale(1.005);
+}
+
+/* @keyframes flashLight {
+     0% {
+        background-color: rgba(26, 26, 26, 0.527);
+        font-size: 5rem;
+         border-color: gold;
+         /* box-shadow: 2px 2px 5px 2px white, -2px -2px 5px 2px rgba(255, 255, 255, 0.685); */
+
+/* }
+     100% {
+         border-color: rgba(253, 37, 37, 0.329);
+         box-shadow: 2px 2px 15px 3px rgb(255, 57, 57), -2px -2px 15px 3px rgb(250, 57, 57);
+         font-size: 5.2rem;
+     }
+ } */
+
+/*----- component TABLE INTERFACE -----*/
+
+.container-principal {
+    background-image: url("./img/free-casino-table-cloth-texture-1637741-1280x1280.jpg");
+    border: 2px solid gold;
+    width: 100%;
+    height: 100%;
+}
+
+.score-container {
+    width: 100vw;
+    height: 20rem;
+    font-weight: 700;
+    font-size: 3rem;
+    color: black;
+}
+
+.container-table {
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+    grid-row: 1fr;
+    height: 100%;
+
+}
+
+.table-left-player {
+    grid-column: 1/2;
+}
+
+.table-middle-button {
+    grid-column: 2/3;
+    align-self: flex-end;
+    margin-bottom: 20%;
+}
+
+.table-right-dealer {
+    grid-column: 3/4;
+}
+
+
+
+
+.container-cards {
+    background-color: transparent;
+}
+
+.card-player {
+    width: 150px;
+    height: auto;
+    border-radius: 10px;
+
+}
+
+.card-dealer {
+    width: 150px;
+    height: auto;
+    border-radius: 10px;
+
+}
+
+/* .player {
+    width: 20vw;
+    /* height: 20vh; 
+} */

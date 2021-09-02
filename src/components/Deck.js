@@ -12,6 +12,17 @@ console.log(desk.flatMap((el)=>{
      return el
 }))
 
-
+const deckAll = [
+    { card: 2, suit: '♡ ' }, { card: 2, suit: '♢' }, { card: 2, suit: '♠' }, { card: 2, suit: '♣' }, { card: 3, suit: '♡ ' }, { card: 3, suit: '♢' },
+    { card: 3, suit: '♠' }, { card: 3, suit: '♣' }, { card: 4, suit: '♡ ' }, { card: 4, suit: '♢' }, { card: 4, suit: '♠' }, { card: 4, suit: '♣' },
+    { card: 5, suit: '♡ ' }, { card: 5, suit: '♢' }, { card: 5, suit: '♠' }, { card: 5, suit: '♣' }, { card: 6, suit: '♡ ' },
+    { card: 6, suit: '♢' }, { card: 6, suit: '♠' }, { card: 6, suit: '♣' }, { card: 7, suit: '♡ ' }, { card: 7, suit: '♢' },
+    { card: 7, suit: '♠' }, { card: 7, suit: '♣' }, { card: 8, suit: '♡ ' }, { card: 8, suit: '♢' }, { card: 8, suit: '♠' },
+    { card: 8, suit: '♣' }, { card: 9, suit: '♡ ' }, { card: 9, suit: '♢' }, { card: 9, suit: '♠' }, { card: 9, suit: '♣' },
+    { card: 10, suit: '♡ ' }, { card: 10, suit: '♢' }, { card: 10, suit: '♠' }, { card: 10, suit: '♣' }, { card: 'A', suit: '♡ ' },
+    { card: 'A', suit: '♢' }, { card: 'A', suit: '♠' }, { card: 'A', suit: '♣' }, { card: 'J', suit: '♡ ' }, { card: 'J', suit: '♢' },
+    { card: 'J', suit: '♠' }, { card: 'J', suit: '♣' }, { card: 'Q', suit: '♡ ' }, { card: 'Q', suit: '♢' }, { card: 'Q', suit: '♠' },
+    { card: 'Q', suit: '♣' }, { card: 'K', suit: '♡ ' }, { card: 'K', suit: '♢' }, { card: 'K', suit: '♠' }, { card: 'K', suit: '♣' }
+  ]
 
 

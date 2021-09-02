@@ -5,18 +5,21 @@ import TableInterface from './components/TableInterface';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import StartingInterface from './components/StartingInterface';
+import {
+  img_2_of_clubs, img_2_of_diamonds, img_2_of_hearts, img_2_of_spades, img_3_of_clubs, img_3_of_diamonds, img_3_of_hearts, img_3_of_spades, img_4_of_clubs, img_4_of_diamonds, img_4_of_hearts, img_4_of_spades, img_5_of_clubs, img_5_of_diamonds, img_5_of_hearts, img_5_of_spades, img_6_of_clubs, img_6_of_diamonds, img_6_of_hearts, img_6_of_spades, img_7_of_clubs, img_7_of_diamonds, img_7_of_hearts, img_7_of_spades, img_8_of_clubs, img_8_of_diamonds, img_8_of_hearts, img_8_of_spades, img_9_of_clubs, img_9_of_diamonds, img_9_of_hearts, img_9_of_spades, img_10_of_clubs, img_10_of_diamonds, img_10_of_hearts, img_10_of_spades, img_ace_of_clubs, img_ace_of_diamonds, img_ace_of_hearts, img_ace_of_spades, img_jack_of_clubs, img_jack_of_diamonds, img_jack_of_hearts, img_jack_of_spades, img_queen_of_clubs, img_queen_of_diamonds, img_queen_of_hearts, img_queen_of_spades, img_king_of_clubs, img_king_of_diamonds, img_king_of_hearts, img_king_of_spades
+} from './cardsUrlArray'
 
 const deck = [
-  { card: 2, suit: '♡ ' }, { card: 2, suit: '♢' }, { card: 2, suit: '♠' }, { card: 2, suit: '♣' }, { card: 3, suit: '♡ ' }, { card: 3, suit: '♢' },
-  { card: 3, suit: '♠' }, { card: 3, suit: '♣' }, { card: 4, suit: '♡ ' }, { card: 4, suit: '♢' }, { card: 4, suit: '♠' }, { card: 4, suit: '♣' },
-  { card: 5, suit: '♡ ' }, { card: 5, suit: '♢' }, { card: 5, suit: '♠' }, { card: 5, suit: '♣' }, { card: 6, suit: '♡ ' },
-  { card: 6, suit: '♢' }, { card: 6, suit: '♠' }, { card: 6, suit: '♣' }, { card: 7, suit: '♡ ' }, { card: 7, suit: '♢' },
-  { card: 7, suit: '♠' }, { card: 7, suit: '♣' }, { card: 8, suit: '♡ ' }, { card: 8, suit: '♢' }, { card: 8, suit: '♠' },
-  { card: 8, suit: '♣' }, { card: 9, suit: '♡ ' }, { card: 9, suit: '♢' }, { card: 9, suit: '♠' }, { card: 9, suit: '♣' },
-  { card: 10, suit: '♡ ' }, { card: 10, suit: '♢' }, { card: 10, suit: '♠' }, { card: 10, suit: '♣' }, { card: 'A', suit: '♡ ' },
-  { card: 'A', suit: '♢' }, { card: 'A', suit: '♠' }, { card: 'A', suit: '♣' }, { card: 'J', suit: '♡ ' }, { card: 'J', suit: '♢' },
-  { card: 'J', suit: '♠' }, { card: 'J', suit: '♣' }, { card: 'Q', suit: '♡ ' }, { card: 'Q', suit: '♢' }, { card: 'Q', suit: '♠' },
-  { card: 'Q', suit: '♣' }, { card: 'K', suit: '♡ ' }, { card: 'K', suit: '♢' }, { card: 'K', suit: '♠' }, { card: 'K', suit: '♣' }
+  { card: 2, suit: img_2_of_clubs }, { card: 2, suit: img_2_of_diamonds }, { card: 2, suit: img_2_of_hearts }, { card: 2, suit: img_2_of_spades }, { card: 3, suit: img_3_of_clubs }, { card: 3, suit: img_3_of_diamonds },
+  { card: 3, suit: img_3_of_hearts }, { card: 3, suit: img_3_of_spades }, { card: 4, suit: img_4_of_clubs }, { card: 4, suit: img_4_of_diamonds }, { card: 4, suit: img_4_of_hearts }, { card: 4, suit: img_4_of_spades },
+  { card: 5, suit: img_5_of_clubs }, { card: 5, suit: img_5_of_diamonds }, { card: 5, suit: img_5_of_hearts }, { card: 5, suit: img_5_of_spades }, { card: 6, suit: img_6_of_clubs },
+  { card: 6, suit: img_6_of_diamonds }, { card: 6, suit: img_6_of_hearts }, { card: 6, suit: img_6_of_spades }, { card: 7, suit: img_7_of_clubs }, { card: 7, suit: img_7_of_diamonds },
+  { card: 7, suit: img_7_of_hearts }, { card: 7, suit: img_7_of_spades }, { card: 8, suit: img_8_of_clubs }, { card: 8, suit: img_8_of_diamonds }, { card: 8, suit: img_8_of_hearts },
+  { card: 8, suit: img_8_of_spades }, { card: 9, suit: img_9_of_clubs }, { card: 9, suit: img_9_of_diamonds }, { card: 9, suit: img_9_of_hearts }, { card: 9, suit: img_9_of_spades },
+  { card: 10, suit: img_10_of_clubs }, { card: 10, suit: img_10_of_diamonds }, { card: 10, suit: img_10_of_hearts }, { card: 10, suit: img_10_of_spades }, { card: 'A', suit: img_ace_of_clubs },
+  { card: 'A', suit: img_ace_of_diamonds }, { card: 'A', suit: img_ace_of_hearts }, { card: 'A', suit: img_ace_of_spades }, { card: 'J', suit: img_jack_of_clubs }, { card: 'J', suit: img_jack_of_diamonds },
+  { card: 'J', suit: img_jack_of_hearts }, { card: 'J', suit: img_jack_of_spades }, { card: 'Q', suit: img_queen_of_clubs }, { card: 'Q', suit: img_queen_of_diamonds }, { card: 'Q', suit: img_queen_of_hearts },
+  { card: 'Q', suit: img_queen_of_spades }, { card: 'K', suit: img_king_of_clubs }, { card: 'K', suit: img_king_of_diamonds }, { card: 'K', suit: img_king_of_hearts }, { card: 'K', suit: img_king_of_spades }
 ]
 
 let count = 0;
@@ -53,7 +56,7 @@ class App extends Component {
         playerCards: [...playerCards, newCard1, newCard2]
       })
       this.updateScorePlayer(newCard1, newCard2)
-    }, 2000)
+    }, 500)
   }
 
   startDealer = () => {
@@ -63,12 +66,11 @@ class App extends Component {
 
     if (this.state.playerStop && count < 2) {
 
-      console.log('dealer start')
+      // console.log('dealer start')
       this.setState({
         dealerCards: [...this.state.dealerCards, newCard1]
       })
       this.updateScoreDealer(newCard1)
-
     }
     if (this.state.scoreDealer < 17) {
       this.setState({
@@ -81,7 +83,6 @@ class App extends Component {
         gameEnd: true
       })
     }
-
   }
 
 
@@ -101,8 +102,7 @@ class App extends Component {
     setTimeout(() => {
 
       this.startDealer()
-    }, 2000)
-
+    }, 1000)
   }
 
   // rePlayDealer = () => {
@@ -151,27 +151,29 @@ class App extends Component {
 
   render() {
 
-    console.log('game start', this.state.gameStart)
-    console.log('---------------------------------------------')
-    console.log('player cards', this.state.playerCards)
-    console.log('dealer cards', this.state.dealerCards)
-    console.log('---------------------------------------------')
-    console.log('total player score', this.state.scorePlayer)
-    console.log('total dealer score', this.state.scoreDealer)
-    console.log('---------------------------------------------')
-    console.log('player has stop', this.state.playerStop)
-    console.log('---------------------------------------------')
-    console.log('game end', this.state.gameEnd)
+    // console.log('game start', this.state.gameStart)
+    // console.log('---------------------------------------------')
+    // console.log('player cards', this.state.playerCards)
+    // console.log('dealer cards', this.state.dealerCards)
+    // console.log('---------------------------------------------')
+    // console.log('total player score', this.state.scorePlayer)
+    // console.log('total dealer score', this.state.scoreDealer)
+    // console.log('---------------------------------------------')
+    // console.log('player has stop', this.state.playerStop)
+    // console.log('---------------------------------------------')
+    // console.log('game end', this.state.gameEnd)
 
 
 
     return (
-
       <>
+
         {!this.state.gameStart &&
           <StartingInterface start={this.start} />
         }
-        {this.state.gameStart &&
+
+        {
+          this.state.gameStart &&
 
           <TableInterface
 
@@ -182,17 +184,15 @@ class App extends Component {
 
 
             containerPlayer={
-              this.state.playerCards.map((card) => {
-                
-                  return <Cards start={this.start} playerCard={card.card + ' ' + card.suit} />
-                })
-             
-            }
-           
+              this.state.playerCards.map((card, index) => {
+                return <Cards key={index} start={this.start} playerCard={card.suit} />
+              })}
+
+
 
             containerDealer={this.state.playerStop &&
-              this.state.dealerCards.map((card) => {
-                return <Cards start={this.startDealer} dealerCard={card.card + ' ' + card.suit} playerStop={this.state.playerStop} />
+              this.state.dealerCards.map((card, index) => {
+                return <Cards key={index} start={this.start} dealerCard={card.suit} playerStop={this.state.playerStop} />
               })}
 
             containerButtons={
