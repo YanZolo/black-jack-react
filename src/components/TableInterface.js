@@ -13,7 +13,7 @@ class TableInterface extends React.Component {
                         <p className=' score-player p-2 '>Score Joueur : <span>{this.props.scorePlayer}</span></p>
                         <div className='result-container text-danger mt-5 align-self-end'>
 
-                            {this.props.scorePlayer > 21 &&
+                            {this.props.scorePlayer > 21 &&                            
                                 <p>YOU LOOSE</p>}
 
                             {this.props.playerStop &&
@@ -25,7 +25,7 @@ class TableInterface extends React.Component {
                                 this.props.dealerStop &&
                                 this.props.scorePlayer === 21 &&
                                 this.props.scoreDealer === 21 &&
-                                <p>DRAW</p>}
+                                <p>DRAW BLACK JACK</p>}
 
                             {this.props.playerStop &&
                                 this.props.dealerStop &&
