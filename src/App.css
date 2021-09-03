@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital@1&family=Press+Start+2P&family=Zen+Dots&display=swap');
-
 /* font-family: 'Poppins', sans-serif;
 font-family: 'Press Start 2P', cursive;
 font-family: 'Zen Dots', cursive; */
@@ -10,7 +9,7 @@ body {
     box-sizing: border-box !important;
     font-family: 'Zen Dots', cursive;
     background-color: black;
-    overflow: hidden; 
+    overflow: hidden;
 }
 
 .display-flex {
@@ -92,15 +91,6 @@ body {
     box-shadow: inset 0px 0px 2px 1px rgba(255, 249, 172, 0.61), inset -0px -0px 2px 1px rgba(255, 249, 172, 0.61);
 }
 
-.button-continue, .button-stop {
-    padding: 10px 20px;
-    border-radius: 20px;
-    width: 10vw;
-    gap: 20px;
-    display: block;
-
-}
-
 .button-start:hover {
     background-color: transparent;
     animation-name: flashLight;
@@ -110,7 +100,6 @@ body {
     transition: 0.5s;
     transform: scale(1.001);
     box-shadow: 2px 2px 5px 2px white, -2px -2px 5px 2px rgba(255, 255, 255, 0.685);
-
 }
 
 /* @keyframes flashLight {
@@ -132,9 +121,8 @@ body {
 
 .container-principal {
     background-image: url('https://p4.wallpaperbetter.com/wallpaper/735/479/671/paisley-pattern-wallpaper-preview.jpg');
-    background-size:cover;
-} 
-
+    background-size: cover;
+}
 
 .score-container {
     display: flex;
@@ -144,70 +132,89 @@ body {
     height: 100%;
     font-weight: 500;
     font-size: 2rem;
-    color: silver;    
+    color: silver;
 }
+
 .result-container {
     color: #BB1F1B;
     font-size: 4rem;
     font-weight: 900;
     font-style: italic;
     font-family: 'Poppins', sans-serif;
-    
 }
 
-.score-player {   
+.score-player {
     border: 1px solid #C8A501;
     border-radius: 10px;
     width: 350px;
     align-self: flex-end;
     margin-top: 100px;
     font-family: 'Poppins', sans-serif;
-
 }
-.score-player>span {   
+
+.score-player>span {
     color: #C8A501;
     font-size: 1.5em;
 }
 
-.score-dealer {    
+.score-dealer {
     border: 1px solid #C8A501;
     border-radius: 10px;
     width: 350px;
     align-self: flex-end;
-margin-top: 20px;
-font-family: 'Poppins', sans-serif;
+    margin-top: 20px;
+    font-family: 'Poppins', sans-serif;
 }
-.score-dealer>span {   
+
+.score-dealer>span {
     color: #C8A501;
     font-size: 1.5em;
 }
-
 
 .container-table {
     display: grid;
     grid-template-columns: 2fr 1fr 2fr;
     grid-row: 1fr;
     height: 100vh;
-    margin-top: 50px; 
-    justify-items: center;   
+    margin-top: 50px;
+    justify-items: center;
 }
 
 .table-left-player {
     grid-column: 1/2;
-    display: flex;    
+    display: flex;
 }
 
 .table-middle-button {
     grid-column: 2/3;
-    align-self: center;    
+    align-self: center;
     margin-bottom: 30%;
 }
+
+.button-continue, .button-stop {
+    padding: 10px 20px;
+    border-radius: 20px;
+    width: 10vw;
+    gap: 20px;
+    display: block;
+    background-color: rgba(26, 26, 26, 0.527);
+    border: 2px solid #C8A501;    
+    color: #C8A501;
+}
+.button-continue:hover, .button-stop:hover {
+    background-color: transparent;
+    transition: 0.5s;
+    transform: scale(1.005);
+    box-shadow: inset 0px 0px 2px 1px rgba(255, 249, 172, 0.61), inset -0px -0px 2px 1px rgba(255, 249, 172, 0.61);
+}
+
+
 
 .table-right-dealer {
     grid-column: 3/4;
     display: flex;
-   
 }
+
 .container-cards {
     background-color: transparent;
 }
@@ -217,34 +224,56 @@ font-family: 'Poppins', sans-serif;
     height: auto;
     border: 1px solid #C8A501;
     border-radius: 10px;
-    transform: scale(1);  
-    margin-left: -50px;     
+    transform: scale(1);
+    margin-left: -450px;
+    animation-name: slidingCardPlayer;
+    animation-duration: 2s;
+    animation-fill-mode: forwards; 
 }
+@keyframes slidingCardPlayer {
+    0% {
+        margin-left: -450px;
+    }
+    100% {
+        margin-left: -70px;
+    }
+}
+
 .card-dealer {
     width: 150px;
     height: auto;
     border: 1px solid #C8A501;
     border-radius: 10px;
     transform: scale(1);
-    margin-right: -50px;     
-    
+    margin-right: -650px;
+    animation-name: slidingCardDealer;
+    animation-duration: 2s;
+    animation-fill-mode:forwards;
+}
+@keyframes slidingCardDealer {
+    0% {
+        margin-right: -650px;
+    }
+    100% {
+        margin-right: -70px;
+    }
 }
 
 /*----- component Replay INTERFACE -----*/
-
 
 .replay-interface {
     width: 100vw;
     height: 100vh;
     background-image: url("./img/blackjack-1.jpg");
-    background-size:cover; 
-    text-align: center; 
+    background-size: cover;
+    text-align: center;
     font-family: 'Zen Dots', cursive;
     /* font-family: 'Press Start 2P', cursive;  */
 }
+
 .button-replay {
     margin-top: 250px;
-    color: #C8A501;    
+    color: #C8A501;
     font-size: 3rem;
     font-weight: 800;
     background-color: rgba(26, 26, 26, 0.527);
@@ -254,8 +283,7 @@ font-family: 'Poppins', sans-serif;
 }
 
 .button-replay:hover {
-    background-color: transparent;    
+    background-color: transparent;
     transition: 0.5s;
     transform: scale(1.005);
 }
-

@@ -39,32 +39,42 @@ class App extends Component {
 
     }
   }
-  // componentDidMount() {
-  // }
-  start = () => {
 
-    // if (this.state.scorePlayer >= 21) {
-    //   this.setState({ playerStop: true, dealerStop: true })
-    //   setTimeout(() => {
-    //     this.setState({ gameEnd: true })
-    //   }, 5000)
-    // }
+  // componentDidMount() {
+
+
+  // }
+
+  start = () => {
+    let newCard1 = this.newCard()
+    let newCard2 = this.newCard()
+    let playerCards = this.state.playerCards
+    let scorePlayer = this.state.scorePlayer
 
     setTimeout(() => {
-      let newCard1 = this.newCard()
-      let newCard2 = this.newCard()
-
-      let playerCards = this.state.playerCards
-
       this.setState({
         gameStart: true,
-        playerCards: [...playerCards, newCard1, newCard2]
+        playerCards: [...playerCards, newCard1, newCard2],
+        scorePlayer: scorePlayer += newCard1.card + newCard2.card
       })
-      this.updateScorePlayer(newCard1, newCard2)
     }, 500)
+    console.log('player score update')
+
   }
 
-  startDealer = () => {
+  newCardPlayer = () => {
+    let newCard1 = this.newCard()
+
+    if (this.state.scorePlayer <= 21) {
+      this.setState({
+        playerCards: [...this.state.playerCards, newCard1]
+      })
+      this.updateScorePlayer(newCard1)
+    }
+
+  }
+
+  newCardDealer = () => {
     let newCard1 = this.newCard()
 
     if (this.state.scoreDealer <= 17) {
@@ -86,22 +96,20 @@ class App extends Component {
   }
 
 
-  updateScorePlayer = (value1, value2) => {
+  updateScorePlayer = (value) => {
     let scorePlayer = this.state.scorePlayer
+    this.setState({ scorePlayer: scorePlayer += value.card })
+    console.log('player score update')
 
-    this.setState({ scorePlayer: scorePlayer += value1.card + value2.card })
-    // setTimeout(() => {
-    //   scorePlayer > 21 &&
-    //     this.setState({ playerStop: true, dealerStop: true, gameEnd: true })
-    // }, 1000)
     if (scorePlayer > 21) {
-      // setTimeout(() => {
-      this.setState({ gameEnd: true, dealerStop: true })
-      // this.handleReplay()
-      console.log('working');
-      // }, 1000)
+      setTimeout(() => {
+        this.setState({
+          playerStop: true, dealerStop: true, gameEnd: true
+        })
+      }, 5000)
     }
-    console.log('scorePlayer est bien en avance');
+
+
   }
 
   updateScoreDealer = (value) => {
@@ -111,7 +119,7 @@ class App extends Component {
     // console.log('dealer score update')
 
     setTimeout(() => {
-      this.startDealer()
+      this.newCardDealer()
     }, 1000)
   }
 
@@ -134,21 +142,14 @@ class App extends Component {
   }
 
 
-  clickContinue = (e) => {
-    e.preventDefault()
-    let newCard = this.newCard()
-    let playerCards = this.state.playerCards
-
-    this.setState({
-      playerCards: [...playerCards, newCard],
-      scorePlayer: this.state.scorePlayer + newCard.card
-    })
+  clickContinue = () => {
+    this.newCardPlayer()
   }
 
   clickStop = () => {
     this.setState({ playerStop: true })
     this.state.scorePlayer <= 21 &&
-      this.startDealer()
+      this.newCardDealer()
   }
 
   handleReplay = () => {
@@ -176,7 +177,7 @@ class App extends Component {
             scoreDealer={this.state.scoreDealer}
             playerStop={this.state.playerStop}
             dealerStop={this.state.dealerStop}
-            // gameEnd={this.endGame}
+            gameEnd={this.state.gameEnd}
 
 
             containerPlayer={
@@ -206,7 +207,10 @@ class App extends Component {
           <ReplayInterface replay={this.handleReplay} /> */}
         {/* } */}
         {this.state.gameEnd &&
+
+
           <ReplayInterface replay={this.handleReplay} />
+
         }
 
 
