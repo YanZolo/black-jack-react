@@ -49,11 +49,20 @@ class App extends Component {
   }
 
   start = () => {
+
+    if (this.state.scorePlayer > 21) {
+      this.setState({ playerStop: true, dealerStop: true })
+      setTimeout(() => {
+        this.setState({ gameEnd: true })
+      }, 5000)
+    }
+
     setTimeout(() => {
       let newCard1 = this.newCard()
       let newCard2 = this.newCard()
 
       let playerCards = this.state.playerCards
+
       this.setState({
         gameStart: true,
         playerCards: [...playerCards, newCard1, newCard2]
@@ -65,7 +74,7 @@ class App extends Component {
 
   startDealer = () => {
     let newCard1 = this.newCard()
-    
+
     if (this.state.scoreDealer <= 17) {
       this.setState({
         dealerCards: [...this.state.dealerCards, newCard1]
@@ -93,7 +102,7 @@ class App extends Component {
     console.log('player score update')
     setTimeout(() => {
       scorePlayer > 21 &&
-        this.setState({ gameEnd: true })
+        this.setState({ playerStop: true, dealerStop: true, gameEnd: true })
     }, 1000)
   }
 
