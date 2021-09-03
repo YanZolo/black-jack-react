@@ -4,7 +4,7 @@ class ReplayInterface extends Component {
     render() {
         return (
             <div className="replay-interface">
-                <button className="btn btn-outline-light button-replay bg-primary text-light " onClick={this.props.replay}>Replay</button>
+                <button className="button-replay" onClick={this.props.replay}>Replay</button>
             </div>
         );
     }
