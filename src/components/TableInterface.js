@@ -2,8 +2,6 @@ import React from 'react'
 
 class TableInterface extends React.Component {
 
-
-
     render() {
 
         return (
@@ -35,7 +33,6 @@ class TableInterface extends React.Component {
                                 this.props.scorePlayer < 21 &&
                                 this.props.dealerStop > 0 &&
                                 <p>DRAW</p>}
-
 
                             {this.props.playerStop &&
                                 this.props.dealerStop &&

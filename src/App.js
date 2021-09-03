@@ -42,12 +42,8 @@ class App extends Component {
 
     }
   }
-
-  componentDidMount() {
-
-
-  }
-
+  // componentDidMount() {
+  // }
   start = () => {
 
     if (this.state.scorePlayer > 21) {
@@ -69,7 +65,6 @@ class App extends Component {
       })
       this.updateScorePlayer(newCard1, newCard2)
     }, 500)
-
   }
 
   startDealer = () => {
@@ -93,6 +88,15 @@ class App extends Component {
 
   }
 
+  // endGame = () => {
+  //   // setTimeout(() => {
+  //   this.setState({ gameEnd: true })
+  //   // }, 3000)
+  //   console.log('game end');
+  //   count = 0;
+  //   this.start()
+  //   console.log('should start');
+  // }
 
 
   updateScorePlayer = (value1, value2) => {
@@ -146,6 +150,7 @@ class App extends Component {
       scorePlayer: this.state.scorePlayer + newCard.card
     })
 
+
   }
 
   clickStop = () => {
@@ -179,7 +184,7 @@ class App extends Component {
             scoreDealer={this.state.scoreDealer}
             playerStop={this.state.playerStop}
             dealerStop={this.state.dealerStop}
-            gameEnd={this.state.gameEnd}
+            // gameEnd={this.endGame}
 
 
             containerPlayer={
