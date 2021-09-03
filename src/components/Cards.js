@@ -6,13 +6,14 @@ class Cards extends Component {
         return (
             <div >
                 {!this.props.playerStop &&
-                    <div key='player' className='card-player img-fluid border-1 '>
+                    <div key='player' className='card-player '>
                         <img className='img-fluid' src={this.props.playerCard} alt="player-Cards" />
                     </div>
                 }
 
+
                 {this.props.playerStop &&
-                    <div key='dealer' className='card-dealer img-fluid border-1'>
+                    <div key='dealer' className='card-dealer '>
                         <img className='img-fluid' src={this.props.dealerCard} alt="dearler-Cards" />
                     </div>
                 }
