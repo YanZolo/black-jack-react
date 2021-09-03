@@ -24,5 +24,7 @@ const deckAll = [
     { card: 'J', suit: '♠' }, { card: 'J', suit: '♣' }, { card: 'Q', suit: '♡ ' }, { card: 'Q', suit: '♢' }, { card: 'Q', suit: '♠' },
     { card: 'Q', suit: '♣' }, { card: 'K', suit: '♡ ' }, { card: 'K', suit: '♢' }, { card: 'K', suit: '♠' }, { card: 'K', suit: '♣' }
   ]
-
+//   handleReplay = () => {
+//     this.setState({gameStart:gameEnd: false, playerStop: false, dealerStop: false})
+//   }
 
