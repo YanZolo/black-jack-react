@@ -21,14 +21,10 @@ const deck = [
   { card: 'A', suit: img_ace_of_diamonds }, { card: 'A', suit: img_ace_of_hearts }, { card: 'A', suit: img_ace_of_spades }, { card: 'J', suit: img_jack_of_clubs }, { card: 'J', suit: img_jack_of_diamonds },
   { card: 'J', suit: img_jack_of_hearts }, { card: 'J', suit: img_jack_of_spades }, { card: 'Q', suit: img_queen_of_clubs }, { card: 'Q', suit: img_queen_of_diamonds }, { card: 'Q', suit: img_queen_of_hearts },
   { card: 'Q', suit: img_queen_of_spades }, { card: 'K', suit: img_king_of_clubs }, { card: 'K', suit: img_king_of_diamonds }, { card: 'K', suit: img_king_of_hearts }, { card: 'K', suit: img_king_of_spades }
-<<<<<<< HEAD
 ];
 
 let scorePlayer = 0;
 let scoreDealer = 0;
-=======
-]
->>>>>>> 13b66f2c397b746c4e3c031b9b32ebbd4c6ee7e8
 
 class App extends Component {
   constructor(props) {
@@ -44,29 +40,20 @@ class App extends Component {
       playerStop: false,
       dealerStop: false
 
+
     }
   }
 
-  // componentDidMount() {
-
-
-  // }
 
   start = () => {
     let newCard1 = this.newCard()
     let newCard2 = this.newCard()
-<<<<<<< HEAD
     let startingScorePlayer = { card: 0 }
     startingScorePlayer.card += newCard1.card + newCard2.card
-=======
-    let playerCards = this.state.playerCards
-    let scorePlayer = this.state.scorePlayer
->>>>>>> 13b66f2c397b746c4e3c031b9b32ebbd4c6ee7e8
 
     setTimeout(() => {
       this.setState({
         gameStart: true,
-<<<<<<< HEAD
         playerCards: [...this.state.playerCards, newCard1, newCard2]
       })
       this.updateScorePlayer(startingScorePlayer)
@@ -75,35 +62,17 @@ class App extends Component {
 
 
 
-=======
-        playerCards: [...playerCards, newCard1, newCard2],
-        scorePlayer: scorePlayer += newCard1.card + newCard2.card
-      })
-    }, 500)
-    console.log('player score update')
->>>>>>> 13b66f2c397b746c4e3c031b9b32ebbd4c6ee7e8
 
   }
 
   newCardPlayer = () => {
     let newCard1 = this.newCard()
-<<<<<<< HEAD
     setTimeout(() => {      
       if (this.state.scorePlayer <= 21) {
         this.setState({ playerCards: [...this.state.playerCards, newCard1] })
         this.updateScorePlayer(newCard1)
       }
     }, 500);
-=======
-
-    if (this.state.scorePlayer <= 21) {
-      this.setState({
-        playerCards: [...this.state.playerCards, newCard1]
-      })
-      this.updateScorePlayer(newCard1)
-    }
-
->>>>>>> 13b66f2c397b746c4e3c031b9b32ebbd4c6ee7e8
   }
 
   newCardDealer = () => {
@@ -121,54 +90,25 @@ class App extends Component {
       this.setState({ dealerStop: true })
       setTimeout(() => {
         this.setState({ gameEnd: true })
-      }, 5000)
+      }, 5000);
     }
-
   }
-
-
-<<<<<<< HEAD
-
   updateScorePlayer = (value) => {    
     setTimeout(() => {
       this.setState({ scorePlayer: scorePlayer += value.card })
       console.log('player score update')
-    }, 1000);    
-=======
-  updateScorePlayer = (value) => {
-    let scorePlayer = this.state.scorePlayer
-    this.setState({ scorePlayer: scorePlayer += value.card })
-    console.log('player score update')
-
-    if (scorePlayer > 21) {
-      setTimeout(() => {
-        this.setState({
-          playerStop: true, dealerStop: true, gameEnd: true
-        })
-      }, 5000)
-    }
-
->>>>>>> 13b66f2c397b746c4e3c031b9b32ebbd4c6ee7e8
-
-    
+    }, 3000);        
   }
 
   updateScoreDealer = (value) => {
-<<<<<<< HEAD
     setTimeout(() => {
       this.setState({ scoreDealer: scoreDealer += value.card })
       console.log('dealer score update')
-    }, 500);
-=======
-    let scoreDealer = this.state.scoreDealer
-
-    this.setState({ scoreDealer: scoreDealer += value.card })
-    // console.log('dealer score update')
->>>>>>> 13b66f2c397b746c4e3c031b9b32ebbd4c6ee7e8
+    }, 3000);
 
     setTimeout(() => {
       this.newCardDealer()
-    }, 1500)
+    }, 3000);
   }
 
   newCard = () => {
@@ -206,7 +146,7 @@ class App extends Component {
 
   handleReplay = () => {
     window.location.reload();
-    // return false;
+    
   }
 
   render() {
@@ -264,9 +204,6 @@ class App extends Component {
           />
         }
 
-        {/* {this.state.scorePlayer > 21 &&
-          <ReplayInterface replay={this.handleReplay} /> */}
-        {/* } */}
         {this.state.gameEnd &&
 
 
