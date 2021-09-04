@@ -189,6 +189,7 @@ body {
     grid-column: 2/3;
     align-self: center;
     margin-bottom: 30%;
+    transition: opacity 2s;
 }
 
 .button-continue, .button-stop {
@@ -200,13 +201,24 @@ body {
     background-color: rgba(26, 26, 26, 0.527);
     border: 2px solid #C8A501;    
     color: #C8A501;
-}
-.button-continue:hover, .button-stop:hover {
-    background-color: transparent;
     transition: 0.5s;
+}
+.button-continue:hover{
+    background-color: #c8a30179; 
+    border: 2px solid black;
+    color: black;   
     transform: scale(1.005);
     box-shadow: inset 0px 0px 2px 1px rgba(255, 249, 172, 0.61), inset -0px -0px 2px 1px rgba(255, 249, 172, 0.61);
 }
+.button-stop:hover{
+    background-color: #bc1f1a7e;
+    border: 2px solid black;
+    color: black;
+    transform: scale(1.005);
+    box-shadow: inset 0px 0px 2px 1px rgba(255, 249, 172, 0.61), inset -0px -0px 2px 1px rgba(255, 249, 172, 0.61);
+}
+
+
 
 
 
