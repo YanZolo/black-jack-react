@@ -10,11 +10,12 @@ class TableInterface extends React.Component {
                 <div className='container-principal'>
 
                     <div className='score-container display-flex  flex-evenly'>
-                        <p className=' score-player p-2 '>Score Joueur : <span>{this.props.scorePlayer}</span></p>
+                        <p className=' score-player p-2 '>Score Joueur :<span>{this.props.scorePlayer}</span></p>
                         <div className='result-container text-danger mt-5 align-self-end'>
 
                             {this.props.scorePlayer > 21 &&
                                 <p>YOU LOOSE</p>}
+
 
 
                             {this.props.scorePlayer === 21 &&
@@ -37,9 +38,6 @@ class TableInterface extends React.Component {
                                 this.props.dealerStop > 0 &&
                                 <p>DRAW</p>}
 
-                            {/* {this.props.scorePlayer > 21 &&
-                                <p>YOU LOOSE</p>} */}
-
                             {this.props.playerStop &&
                                 this.props.dealerStop &&
                                 this.props.scorePlayer < this.props.scoreDealer &&
@@ -59,7 +57,8 @@ class TableInterface extends React.Component {
                                 <p> YOU win</p>}
 
                         </div>
-                        <p className=' score-dealer p-2 '>Score Dealer : <span>{this.props.scoreDealer}</span> </p>
+                        <p className=' score-dealer p-2 '>Score Dealer : <span>{this.props.scoreDealer}</span>
+                        </p>
                     </div>
 
                     <div className='container-table '>
