@@ -37,8 +37,8 @@ class TableInterface extends React.Component {
                                 this.props.dealerStop > 0 &&
                                 <p>DRAW</p>}
 
-                            {this.props.scorePlayer > 21 &&
-                                <p>YOU LOOSE</p>}
+                            {/* {this.props.scorePlayer > 21 &&
+                                <p>YOU LOOSE</p>} */}
 
                             {this.props.playerStop &&
                                 this.props.dealerStop &&
